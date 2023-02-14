@@ -1,13 +1,23 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import entry from '../entry';
 
 
 export default function App() {
+
+    const navi = useNavigation();
+
+    function GoToEntry() {
+        navi.navigate(entry)
+    };
+
     return (
         <View style={styles.container}>
             <Image source={require('../../../assets/logocws.png')} style={styles.logo} />
             <View style={styles.buttons}>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn} onPress={GoToEntry}>
                     <View style={styles.button}>
                         <Text style={styles.textBtn}>Nova Check List</Text>
                     </View>
